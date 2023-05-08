@@ -1,0 +1,30 @@
+FROM ubuntu:16.04
+
+RUN apt-get update
+
+RUN apt-get -qq -y install curl
+#install apache2
+RUN apt-get -y install apache2
+
+RUN chmod 2775 /var/www && find /var/www -type d -exec chmod 2775 {} \;
+RUN find /var/www -type f -exec chmod 0664 {} \;
+
+
+ENV APACHE_DOCUMENT_ROOT /var/www/html
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+#install php
+RUN apt-get -y install php7.0
+RUN apt-get -y install libapache2-mod-php7.0
+RUN apt-get -y install php7.0-mysql
+RUN apt-get -y install php7.0-gd
+RUN apt-get -y install php-pear
+RUN apt-get -y install php7.0-curl
+RUN rm /var/www/html/index.html
+COPY SamplePage.php /var/www/html/
+COPY db.info /var/www/inc/
+COPY index.php /var/www/html/
+COPY db.info.php  /var/www/html/
+EXPOSE 80
+CMD ["apachectl", "-D", "FOREGROUND"]
+RUN systemctl enable apache2
