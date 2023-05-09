@@ -1,0 +1,55 @@
+
+pipeline {
+   
+    agent  any
+    stages {
+            stage('checkout') {
+                steps {
+                       script{
+                           dir("terraform"){
+                                   git branch: 'terraform', credentialsId: 'github-jenkins', url: 'git@github.com:SairajBhoi/webapp.git' 
+                                   sh 'terraform init'
+                                 
+                           }
+                        }
+                }
+            }
+        stage('terraform init') {
+                steps {
+                       script{
+                           dir("terraform"){
+                                   
+                                   sh 'terraform init'
+                           }
+                        }
+                }
+            }
+            
+            
+        stage('terraform plan') {
+                steps {
+                       script{
+                           dir("terraform"){
+                                   
+                                  sh 'terraform plan'
+                           }
+                        }
+                }
+            }    
+            
+        stage('terraform apply') {
+                steps {
+                       script{
+                           dir("terraform"){
+                                   
+                                  sh 'terraform apply --auto-approve'
+                           }
+                        }
+                }
+            }
+          
+    }
+}
+    
+
+
