@@ -8,8 +8,7 @@ pipeline {
                        script{
                            dir("terraform"){
                                    git branch: 'terraform', credentialsId: 'github-jenkins', url: 'git@github.com:SairajBhoi/webapp.git' 
-                                   sh 'terraform init'
-                                 
+                                   
                            }
                         }
                 }
