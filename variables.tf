@@ -17,6 +17,10 @@ variable "cidr_block_private"{
    
 
 }
+variable "cidr_block_private_a"{
+   
+
+}
 #mysql variables
  variable "identifier" {
 

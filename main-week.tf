@@ -72,7 +72,7 @@ module "subnet_private_a" {
   source            = "./module/subnet"
   vpc_id            = module.vpc.vpc_id
   availability_zone = "${var.aws_region}a"
-  cidr_block        = var.cidr_block_private
+  cidr_block        = var.cidr_block_private_a
   Name = "private-subnet-a"
 }
 
