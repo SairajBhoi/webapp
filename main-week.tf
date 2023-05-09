@@ -141,3 +141,9 @@ module "mysql-db" {
   allocated_storage = var.allocated_storage
    
 }
+
+module "ecr" {
+  source = "./module/ecr"
+
+  ecr_repo_name = var.ecr_repo_name
+}

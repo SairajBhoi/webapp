@@ -41,3 +41,6 @@ variable "cidr_block_private_a"{
  variable "allocated_storage" {
 
  }
+ variable "ecr_repo_name" {
+    
+ }

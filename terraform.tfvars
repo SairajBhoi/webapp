@@ -17,3 +17,4 @@ key_name  = "my-key-pair"
   password          = "root1234"
   allocated_storage = 10
 
+ ecr_repo_name= "web-app-repo"
