@@ -29,7 +29,7 @@ pipeline {
                        script{
                            dir("docker"){
                                    
-                                   sh 'docker build -t web-app-repo -f Docker .'
+                                   sh 'docker build -t web-app-repository  -f Docker .'
                            }
                         }
                 }
@@ -39,7 +39,7 @@ pipeline {
                        script{
                            dir("docker"){
                                    
-                                   sh 'docker tag web-app-repo:latest 126681421555.dkr.ecr.ap-south-1.amazonaws.com/web-app-repo:latest'
+                                   sh 'docker tag web-app-repository:latest 126681421555.dkr.ecr.ap-south-1.amazonaws.com/web-app-repository:latest'
                            }
                         }
                 }
@@ -49,7 +49,8 @@ pipeline {
                        script{
                            dir("docker"){
                                    
-                                   sh 'docker push 126681421555.dkr.ecr.ap-south-1.amazonaws.com/web-app-repo:latest'
+                                   sh 'docker push 126681421555.dkr.ecr.ap-south-1.amazonaws.com/web-app-repository:latest'
+                                   
                            }
                         }
                 }
