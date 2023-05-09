@@ -13,5 +13,5 @@ key_name  = "my-key-pair"
   instance_class    = "db.t2.micro"
   username          = "root"
   password          = "root1234"
-  allocated_storage = 5
+  allocated_storage = 10
 
