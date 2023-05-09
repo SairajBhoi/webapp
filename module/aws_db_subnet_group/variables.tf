@@ -1,4 +1,4 @@
-variable "private_id" {
+variable "private_id_a" {
 }
-variable "public_id" {
+variable "private_id_b" {
 }
