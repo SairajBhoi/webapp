@@ -1,5 +1,6 @@
 resource "aws_eip" "eip" {
   vpc = true
+  
   tags = {
     Name = "elastic_ip"
   }
