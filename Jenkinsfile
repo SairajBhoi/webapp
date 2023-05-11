@@ -19,7 +19,7 @@ pipeline {
                        script{
                            dir("docker"){
                                    
-                                   sh ' aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 126681421555.dkr.ecr.ap-south-1.amazonaws.com'
+                                   sh ' sudo aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 126681421555.dkr.ecr.ap-south-1.amazonaws.com'
                            }
                         }
                 }
@@ -29,7 +29,7 @@ pipeline {
                        script{
                            dir("docker"){
                                    
-                                   sh 'docker build -t web-app-repository  -f Docker .'
+                                   sh 'sudo docker build -t web-app-repository  -f Docker .'
                            }
                         }
                 }
@@ -39,7 +39,7 @@ pipeline {
                        script{
                            dir("docker"){
                                    
-                                   sh 'docker tag web-app-repository:latest 126681421555.dkr.ecr.ap-south-1.amazonaws.com/web-app-repository:latest'
+                                   sh 'sudo docker tag web-app-repository:latest 126681421555.dkr.ecr.ap-south-1.amazonaws.com/web-app-repository:latest'
                            }
                         }
                 }
@@ -49,7 +49,7 @@ pipeline {
                        script{
                            dir("docker"){
                                    
-                                   sh 'docker push 126681421555.dkr.ecr.ap-south-1.amazonaws.com/web-app-repository:latest'
+                                   sh 'sudo docker push 126681421555.dkr.ecr.ap-south-1.amazonaws.com/web-app-repository:latest'
                                    
                            }
                         }
