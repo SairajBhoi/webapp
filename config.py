@@ -2,6 +2,10 @@
 import boto3
 import configparser
 import json
+import os
+
+os.environ['AWS_CONFIG_FILE']='~/.aws/config'
+os.environ['AWS_SHARED_CREDENTIALS_FILE']='~/.aws/credentials'
 
 session = boto3.Session(profile_name='default')
 client = session.client('secretsmanager',region_name='ap-south-1')
