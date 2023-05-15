@@ -5,9 +5,9 @@ import json
 
 client = boto3.client('secretsmanager')
 
-response = client.get_secret_value{
+response = client.get_secret_value(
     SecretId = 'mysql-db-secret'
-}
+)
 
 secretDict = json.loads(response['SecretString'])
 
