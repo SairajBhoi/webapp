@@ -5,7 +5,7 @@ RUN  apt-get  update &&\
   python3-pip \
   python3-flask \
   python3-pymysql \
-  sudo
+  sudo \
   python3-boto3 
 COPY . /web-app
 EXPOSE 5000
