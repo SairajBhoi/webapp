@@ -1,4 +1,4 @@
-import mysql.connector
+
 import boto3
 import configparser
 import json

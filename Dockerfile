@@ -5,8 +5,8 @@ RUN  apt-get  update &&\
   python3-flask \
   python3-pymysql \
   sudo \
-  python3-boto3 \
-  mysql-connector-python3
+  python3-boto3  
+  
 WORKDIR /web-app
 COPY . /web-app
 EXPOSE 5000
