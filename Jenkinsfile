@@ -29,7 +29,7 @@ pipeline {
                        script{
                            dir("docker"){
                                    
-                                   sh 'docker build -t web-app-repository   -f Docker .'
+                                   sh 'docker build -t web-app-repository   -f Dockerfile .'
 
                            }
                         }
