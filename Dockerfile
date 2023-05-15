@@ -10,5 +10,3 @@ COPY . /web-app
 EXPOSE 5000
 ENTRYPOINT ['python3']
 CMD ['EmpApp.py']
-
-CMD python3 /web-app/EmpApp.py
