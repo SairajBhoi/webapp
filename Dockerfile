@@ -6,7 +6,8 @@ RUN  apt-get  update &&\
   python3-pymysql \
   sudo \
   python3-boto3 
+WORKDIR /web-app
 COPY . /web-app
 EXPOSE 5000
-ENTRYPOINT ['python3']
-CMD ['EmpApp.py']
+ENTRYPOINT ["python3"]
+CMD ["EmpApp.py"]
