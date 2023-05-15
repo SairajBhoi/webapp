@@ -10,11 +10,11 @@ bucket = custombucket
 region = customregion
 
 db_conn = connections.Connection(
-    host=customhost,
+    host=secretDict['host'],
     port=3306,
-    user=customuser,
-    password=custompass,
-    db=customdb
+    user=secretDict['username'],
+    password=custompasssecretDict['password'],
+    db=secretDict['dbname']
 
 )
 output = {}
