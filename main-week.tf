@@ -128,14 +128,18 @@ module "rds" {
 
 }
 
+data "aws_secretsmanager_secret_version" "rds_secret"{
+  secret_id = "mysql-db-secret"
+}
+
 module "mysql-db" {
   source = "./module/rds-db"
   identifier        = "mysql-db"
   engine            = var.engine 
   engine_version    = var.engine_version
   instance_class    = var.instance_class 
-  username          = var.username  
-  password          = var.password 
+  username          = data.aws_secretsmanager_secret_version.rds_secret.secret_string["username"]  
+  password          = data.aws_secretsmanager_secret_version.rds_secret.secret_string["password"]
   vpc_security_group_ids = [module.rds.sg_id]
   db_subnet_group_name = module.rdsdb.rdsdb-name
   allocated_storage = var.allocated_storage
