@@ -17,4 +17,4 @@ username          = "root"
 password          = "root1234"
 allocated_storage = 10
 
-ecr_repo_name= "web-app-repository"
+ecr_repo_name= "web-app-repository-week-assignment"
