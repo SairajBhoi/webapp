@@ -3,7 +3,7 @@ import boto3
 import configparser
 import json
 
-client = boto3.client('secretsmanager')
+client = boto3.client('secretsmanager',region_name='ap-south-1')
 
 response = client.get_secret_value(
     SecretId = 'mysql-db-secret'
