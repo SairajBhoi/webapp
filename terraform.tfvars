@@ -6,7 +6,7 @@ cidr_block_private_a = "10.0.3.0/24"
 aws_region = "ap-south-1"
 ami = "ami-02eb7a4783e7e9317"
 instance_type = "t2.micro"
-key_name  = "aws-project-key-pair-latest"
+key_name  = "test"
 
 #db variable defination
 identifier        = "mysql-db"
