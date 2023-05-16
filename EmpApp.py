@@ -19,11 +19,11 @@ dbname = "mysql-db"
 
 
 db_conn = connections.Connection(
-    host=secretDict['host'],
+    host=host,
     port=3306,
-    user=secretDict['username'],
-    password=custompasssecretDict['password'],
-    db=secretDict['dbname'] 
+    user=username,
+    password=password,
+    db=dbname 
 
 )
 output = {}
