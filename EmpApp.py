@@ -2,12 +2,18 @@ from flask import Flask, render_template, request
 from pymysql import connections
 import os
 import boto3
-from config import *
-
+# from config import *
+import os 
 app = Flask(__name__)
 
 bucket = custombucket
 region = customregion
+
+host = os.environ.get('endpoint')
+username = os.environ.get('user')
+password = os.environ.get('password')
+dbname = "mysql-db"
+
 
 db_conn = connections.Connection(
     host=secretDict['host'],
