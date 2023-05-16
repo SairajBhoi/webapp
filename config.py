@@ -14,7 +14,15 @@ response = client.get_secret_value(
     SecretId = 'mysql-db-secret'
 )
 
+
+
+    
 secretDict = json.loads(response['SecretString'])
+
+    # host=secretDict['host'],
+    # user=secretDict['username'],
+    # password=custompasssecretDict['password'],
+    # db=secretDict['dbname']
 
 
 

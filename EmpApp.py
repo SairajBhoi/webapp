@@ -14,7 +14,7 @@ db_conn = connections.Connection(
     port=3306,
     user=secretDict['username'],
     password=custompasssecretDict['password'],
-    db=secretDict['dbname']
+    db=secretDict['dbname'] 
 
 )
 output = {}
