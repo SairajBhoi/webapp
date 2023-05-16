@@ -3,8 +3,8 @@ resource "aws_db_instance" "mysql-db" {
   engine            = var.engine 
   engine_version    = var.engine_version
   instance_class    = var.instance_class
-  username          = aws_secretsmanager_secret_version.rds_rds_secret.secret_string["username"]
-  password          = aws_secretsmanager_secret_version.rds_rds_secret.secret_string["password"] 
+  username          = local.db_creds.username
+  password          = local.db_creds.password
   # username          = var.username  
   # password          = var.password 
   skip_final_snapshot = true
@@ -17,6 +17,11 @@ resource "aws_db_instance" "mysql-db" {
   }
 }
 
-data "aws_secretsmanager_secret_version" "rds_secret"{
+data "aws_secretsmanager_secret_version" "creds"{
   secret_id = "mysql-db-secret"
+}
+locals{
+  db_creds = jsondecode(
+    data.aws_secretsmanager_secret_version.creds.secret_string
+  )
 }
