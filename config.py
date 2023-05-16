@@ -15,7 +15,8 @@ response = client.get_secret_value(
 )
 
 
-
+custombucket = "employee-info-bucket"
+customregion = "ap-south-1"
     
 secretDict = json.loads(response['SecretString'])
 
