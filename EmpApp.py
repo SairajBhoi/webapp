@@ -6,6 +6,9 @@ import boto3
 import os 
 app = Flask(__name__)
 
+custombucket = "employee-info-bucket"
+customregion = "ap-south-1"
+
 bucket = custombucket
 region = customregion
 
