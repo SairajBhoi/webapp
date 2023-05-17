@@ -58,10 +58,10 @@ def get_secret():
 
 
 
-    host=secretDict['host'],
-    user=secretDict['username'],
-    password=custompasssecretDict['password'],
-    db=secretDict['dbname']
+    host=secret[host],
+    user=secret[username],
+    password=secret[password],
+    db=secret[dbname]
 
     custombucket = "emp-info-bucket"
     customregion = "ap-south-1"
