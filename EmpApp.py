@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 
 bucket = "emp-info-bucket"
-region = customregion
+region = "ap-south-1"
 
 db_conn = connections.Connection(
     host=host,
