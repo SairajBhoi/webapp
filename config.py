@@ -58,10 +58,10 @@ def get_secret():
 
 
 
-    host=secret[host],
-    user=secret[username],
-    password=secret[password],
-    db=secret[dbname]
+    customhost = secret[host],
+    customuser = secret[username],
+    custompass = secret[password],
+    customdb= "project-aws-database"
 
     custombucket = "emp-info-bucket"
     customregion = "ap-south-1"

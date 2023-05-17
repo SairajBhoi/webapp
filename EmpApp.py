@@ -3,18 +3,18 @@ from pymysql import connections
 import os
 import boto3
 from config import *
-import os 
+
 app = Flask(__name__)
 
-bucket = "emp-info-bucket"
-region = "ap-south-1"
+bucket = custombucket
+region = customregion
 
 db_conn = connections.Connection(
-    host=host,
+    host=customhost,
     port=3306,
-    user=username,
-    password=password,
-    db=dbname 
+    user=customuser,
+    password=custompass,
+    db=customdb
 
 )
 output = {}
