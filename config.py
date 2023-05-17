@@ -1,31 +1,10 @@
 
-import boto3
-import configparser
-import json
-import os
-
-# os.environ['AWS_CONFIG_FILE']='~/.aws/config'
-# os.environ['AWS_SHARED_CREDENTIALS_FILE']='~/.aws/credentials'
-
-# session = boto3.Session(profile_name='default')
-# client = session.client('secretsmanager',region_name='ap-south-1')
-
-# response = client.get_secret_value(
-#     SecretId = 'mysql-db-secret'
-# )
-
-
-
-    
-# secretDict = json.loads(response['SecretString'])
-
-
 # Use this code snippet in your app.
 # If you need more information about configurations
 # or implementing the sample code, visit the AWS docs:
 # https://aws.amazon.com/developer/language/python/
 
-# import boto3
+import boto3
 from botocore.exceptions import ClientError
 
 
@@ -54,45 +33,12 @@ def get_secret():
     secret = get_secret_value_response['SecretString']
 
     # Your code goes here.
-
-
-
-
-    customhost = secret[host],
-    customuser = secret[username],
-    custompass = secret[password],
-    customdb= "project-aws-database"
-    custombucket = "emp-info-bucket"
-    customregion = "ap-south-1"
-
-# secret_name = "mysql-db-secret"
-# region_name = "ap-south-1"
-# config = configparser.ConfigParser()
-# config.read( '~/.aws/credentials')
-# profile_name = 'default'
-
-# access_key = config.get(profile_name,'aws_access_key_id')
-# secret_key = config.get(profile_name,'aws_secret_acess_key')
-
-# session = boto3.session.Session()
-# client = session.client(
-#     service_name = 'secretsmanager',
-#     region_name = region_name
-# )
-
-
-# response = client.get_secret_value(SecretId=secret_name)
-# secret_value = json.loads(response['SecretString'])
-
-
-
-
-
-
-
-
-
-
+customhost = secret[host]
+customuser = secret[username]
+custompass = secret[password]
+customdb = "projet-app-db"
+custombucket = "emp-info-bucket"
+customregion = "ap-south-1"
 
 
 
