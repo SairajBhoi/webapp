@@ -29,7 +29,7 @@ pipeline {
                        script{
                            dir("docker"){
                                    
-                                   sh 'docker build -t web-app-repository   -f Dockerfile .'
+                                   sh 'docker build -t web-app-repository-week-assignment   -f Dockerfile .'
 
                            }
                         }
@@ -40,7 +40,7 @@ pipeline {
                        script{
                            dir("docker"){
                                    
-                                   sh ' docker tag web-app-repository:latest 126681421555.dkr.ecr.ap-south-1.amazonaws.com/web-app-repository:latest'
+                                   sh ' docker tag web-app-repository-week-assignment:latest 126681421555.dkr.ecr.ap-south-1.amazonaws.com/web-app-repository-week-assignment:latest'
                            }
                         }
                 }
@@ -50,7 +50,7 @@ pipeline {
                        script{
                            dir("docker"){
                                    
-                                   sh 'docker push 126681421555.dkr.ecr.ap-south-1.amazonaws.com/web-app-repository:latest'
+                                   sh 'docker push 126681421555.dkr.ecr.ap-south-1.amazonaws.com/web-app-repository-week-assignment:latest'
                                    
                            }
                         }
