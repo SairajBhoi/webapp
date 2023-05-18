@@ -8,8 +8,7 @@ module "rdsdb"{
 
 
 module "rds" {
-    source = "./module/security-group/rds-sg"
-  
+  source = "./module/security-group/rds-sg"
   vpc_id      = module.vpc.vpc_id
   security_groups = [module.security_group.sg_id]
 
