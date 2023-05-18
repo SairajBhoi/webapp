@@ -4,19 +4,16 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                script {
-                    sh "sudo chmod u+rx /home/ubuntu"
-                    dir("/home/ubuntu/ansible/") {
-                        git branch: 'Ansible-minikube', credentialsId: 'github-jenkins', url: 'git@github.com:SairajBhoi/webapp.git'
-                    }
-                }
+                sh 'chmod -R 777 /var/lib/jenkins/workspace/AWS-project-minikube'
+                checkout scm
             }
         }
 
         stage('ansible-minikube') {
             steps {
-                withCredentials([ansibleSshKey(credentialsId: 'remote-access', keyFileVariable: 'SSH_KEY')]) {
-                    ansiblePlaybook installation: 'Ansible', inventory: '/home/ubuntu/ansible/inventory.ini', playbook: '/home/ubuntu/ansible/playbook2.yaml', extras: "-e 'ansible_ssh_private_key_file=${SSH_KEY}'"
+                dir('/var/lib/jenkins/workspace/AWS-project-minikube') {
+                    sh 'chmod -R 777 /home/ubuntu/ansible'
+                    ansiblePlaybook credentialsId: 'remote-access', installation: 'Ansible', inventory: '/home/ubuntu/ansible/inventory.ini', playbook: '/home/ubuntu/ansible/playbook2.yaml'
                 }
             }
         }
