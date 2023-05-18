@@ -13,8 +13,9 @@ pipeline {
               steps {
                     ansiblePlaybook credentialsId: 'remote-access', installation: 'Ansible', inventory: '/var/lib/jenkins/workspace/AWS-project-minikube/inventory.ini', playbook: '/var/lib/jenkins/workspace/AWS-project-minikube/playbook2.yaml'
               }
+           }
         }
- }
+}
     
 
 
