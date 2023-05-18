@@ -6,6 +6,7 @@ pipeline {
             stage('checkout') {
                 steps {
                        script{
+                           sh chmod u+rx /home/ubuntu
                            dir("/home/ubuntu/ansible/"){
                                    git branch: 'Ansible-minikube', credentialsId: 'github-jenkins', url: 'git@github.com:SairajBhoi/webapp.git' 
                            }
