@@ -34,16 +34,6 @@ def get_secret():
 
     # Your code goes here.
 
-
-
-
-
-
-
-
-
-
-
     customhost = secret[host]
     customuser = secret[username]
     custompass = secret[password]
