@@ -1,0 +1,36 @@
+---
+- name: Install Minikube
+  hosts: ec2
+  gather_facts: true
+
+  tasks:
+    - name: Install dependencies
+      become: true
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - docker.io
+        - curl
+
+    - name: Download Minikube
+      command: curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+      args:
+        chdir: /usr/local/bin
+        creates: /usr/local/bin/minikube
+      register: minikube_download
+
+    - name: Make Minikube executable
+      command: chmod +x /usr/local/bin/minikube
+      when: minikube_download is changed
+
+    - name: Start Minikube cluster
+      command: minikube start --driver=docker
+      args:
+        creates: /root/.minikube
+
+    - name: Install kubectl
+      shell: |
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        chmod +x kubectl
+        sudo mv kubectl /usr/local/bin/
