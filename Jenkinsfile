@@ -4,8 +4,9 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                sh 'chmod -R 777 /var/lib/jenkins/workspace/AWS-project-minikube'
-                checkout scm
+                dir('/home/ubuntu/ansible/'){
+                   git branch: 'Ansible-minikube', credentialsId: 'github-jenkins', url: 'git@github.com:SairajBhoi/webapp.git'
+                }
             }
         }
 
