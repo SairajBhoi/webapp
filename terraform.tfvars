@@ -13,8 +13,6 @@ identifier        = "mysql-db"
 engine            = "mysql"
 engine_version    = "5.7"
 instance_class    = "db.t2.micro"
-//username          = "root"
-//password          = "root1234"
 allocated_storage = 10
 
 ecr_repo_name= "web-app-repository-week-assignment"
