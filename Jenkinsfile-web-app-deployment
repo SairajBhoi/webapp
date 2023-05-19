@@ -9,12 +9,14 @@ pipeline {
           }
         
 
-           stage('ansible-minikube-installation') {
+           stage('web-app-deployment') {
               steps {
-                    ansiblePlaybook credentialsId: 'test', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/var/lib/jenkins/workspace/AWS-project-minikube/inventory.ini', playbook: '/var/lib/jenkins/workspace/AWS-project-minikube/playbook2.yaml'
                     
+                    ansiblePlaybook credentialsId: 'test', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/var/lib/jenkins/workspace/AWS-project-minikube-deployment/inventory.ini', playbook: '/var/lib/jenkins/workspace/AWS-project-minikube-deployment/playbook_k8s.yaml'
               }
            }
+
+        
         }
 }
     
