@@ -17,7 +17,6 @@ pipeline {
                 steps {
                        script{
                            dir("terraform"){
-                                   sh 'terraform init -input=false -backend-config="s3_bucket=state-file-bucket-tf"'
                                    sh 'echo "yes" | terraform init'
                            }
                         }
