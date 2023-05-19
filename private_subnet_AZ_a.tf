@@ -14,7 +14,7 @@ module "routetable_private_a" {
 }
 
 module "route_table_association_private_a" {
-  source = "./module/route-table-association"
+  source         = "./module/route-table-association"
   subnet_id      = module.subnet_private_a.subnet_id
   route_table_id = module.routetable_private_a.route-table_id
 }

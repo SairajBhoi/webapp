@@ -36,12 +36,6 @@ variable "engine_version"{
 variable "instance_class"{
 }
 
-# variable "username"{
-# }  
-
-# variable "password" {
-# }
-
 variable "allocated_storage" {
 }
 

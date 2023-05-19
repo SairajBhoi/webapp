@@ -12,7 +12,7 @@ module "security_group" {
   vpc_id      = module.vpc.vpc_id
 }
 module "network_interface" {
- source                 = "./module/network_interface" 
- subnet_id       = module.subnet_public.subnet_id
+ source          =  "./module/network_interface" 
+ subnet_id       =  module.subnet_public.subnet_id
  security_groups = [module.security_group.sg_id]
 }
