@@ -1,0 +1,24 @@
+- name: Deploy Kubernetes Deployment
+  hosts: ec2
+  gather_facts: no
+  tasks:
+    - name: copying file with playbook
+      become: true
+      copy:
+        src: /var/lib/jenkins/workspace/AWS-project-minikube/web-app-deployment.yaml
+        dest: /tmp/web-app-deployment.yaml
+    - name: copying file with playbook
+      become: true
+      copy:
+        src: /var/lib/jenkins/workspace/AWS-project-minikube/web-app-service.yaml
+        dest: /tmp/web-app-service.yaml
+    - name: Create a deployment
+      k8s:
+        state: present
+        namespace: default
+        src: /tmp/web-app-deployment.yaml
+    - name: Create a nodeport service
+      k8s:
+        state: present
+        namespace: default
+        src: /tmp/web-app-service.yaml
