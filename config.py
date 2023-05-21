@@ -7,7 +7,7 @@ secret_name = "mysql-db-secret"
 region_name = "ap-south-1"
 config      = configparser.ConfigParser()
 
-config.read(r'/home/ubuntu/.aws/config')
+config.read(r'/home/ubuntu/.aws/credentials')
 
 profile_name = 'default' 
 access_key   = config.get(profile_name, 'aws_access_key_id')
