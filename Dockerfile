@@ -7,6 +7,7 @@ RUN  apt-get  update &&\
   sudo \
   python3-boto3  
   
+  
 WORKDIR /web-app
 COPY . /web-app
 EXPOSE 5000

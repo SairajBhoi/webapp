@@ -1,0 +1,5 @@
+aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 126681421555.dkr.ecr.ap-south-1.amazonaws.com
+
+docker pull 126681421555.dkr.ecr.ap-south-1.amazonaws.com/web-app-repository-week-assignment:latest
+
+docker run -d -p 5001:5000 --name web-app-container-python-true$BUILD_NUMBER 126681421555.dkr.ecr.ap-south-1.amazonaws.com/web-app-repository-week-assignment:latest

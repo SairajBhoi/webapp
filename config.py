@@ -1,44 +1,32 @@
+import boto3
+import configparser
+import json
+import os
 
-# # Use this code snippet in your app.
-# # If you need more information about configurations
-# # or implementing the sample code, visit the AWS docs:
-# # https://aws.amazon.com/developer/language/python/
+secret_name = "mysql-db-secret"
+region_name = "ap-south-1"
+config      = configparser.ConfigParser()
 
-# import boto3
-# from botocore.exceptions import ClientError
+config.read(r'~/.aws/config')
 
+profile_name = 'default' 
+access_key   = config.get(profile_name, 'aws_access_key_id')
+secret_key   = config.get(profile_name, 'aws_secret_access_key')
+session      = boto3.session.Session()
 
-# def get_secret():
+client = session.client(
+   aws_access_key_id     = access_key,
+   aws_secret_access_key = secret_key,
+   service_name          = 'secretsmanager',
+   region_name           = region_name
+)
+response     = client.get_secret_value(SecretId=secret_name)
+secret_value = json.loads(response['SecretString'])
 
-#     secret_name = "mysql-db-secret"
-#     region_name = "ap-south-1"
-
-#     # Create a Secrets Manager client
-#     session = boto3.session.Session()
-#     client = session.client(
-#         service_name='secretsmanager',
-#         region_name=region_name
-#     )
-
-#     try:
-#         get_secret_value_response = client.get_secret_value(
-#             SecretId=secret_name
-#         )
-#     except ClientError as e:
-#         # For a list of exceptions thrown, see
-#         # https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
-#         raise e
-
-#     # Decrypts secret using the associated KMS key.
-#     secret = get_secret_value_response['SecretString']
-
-#     # Your code goes here.
-
-#     customhost = secret[host]
-#     customuser = secret[username]
-#     custompass = secret[password]
-#     customdb = "projet-app-db"
-#     custombucket = "emp-info-bucket"
-#     customregion = "ap-south-1"
-
-
+customhost   = secret_value["host"]
+customuser   = secret_value["username"]
+custompass   = secret_value["password"]
+customdb     = "projet_app_db"
+custombucket = "emp-info-bucket"
+customregion = "ap-south-1"
+print(customhost)
