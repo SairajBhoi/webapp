@@ -5,5 +5,5 @@ resource "aws_network_interface" "example_nic" {
 }
 
 locals{
-private_ip=["10.0.1.10"]
+private_ip=["192.168.1.10"]
 }
