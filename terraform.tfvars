@@ -15,4 +15,4 @@ engine_version    = "5.7"
 instance_class    = "db.t2.micro"
 allocated_storage = 10
 
-ecr_repo_name     = "web-app-repository-week-assignment-class-c"
+ecr_repo_name     = "web-app-repository-week-assignment"
