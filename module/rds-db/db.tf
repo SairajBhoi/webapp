@@ -4,9 +4,7 @@ resource "aws_db_instance" "mysql-db" {
   engine_version    = var.engine_version
   instance_class    = var.instance_class
   username          = local.db_creds.username
-  password          = local.db_creds.password
-  # username          = var.username  
-  # password          = var.password 
+  password          = local.db_creds.password 
   skip_final_snapshot = true
   allocated_storage = var.allocated_storage
   db_subnet_group_name = var.db_subnet_group_name
