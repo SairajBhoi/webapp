@@ -1,5 +1,5 @@
 module "rdsdb"{
-    source       = "./module/aws_db_subnet_group"
+    source       = "./module/Database/aws_db_subnet_group"
     private_id_a = module.subnet_private_a.subnet_id
     private_id_b = module.subnet_private.subnet_id
     
@@ -8,7 +8,7 @@ module "rdsdb"{
 
 
 module "rds" {
-  source          = "./module/security-group/rds-sg"
+  source          = "./module/Network/security-group/rds-sg"
   vpc_id          = module.vpc.vpc_id
   security_groups = [module.security_group.sg_id]
 
@@ -16,7 +16,7 @@ module "rds" {
 
 
 module "mysql-db" {
-  source = "./module/rds-db"
+  source = "./module/Database/rds-db"
   identifier        = "mysql-db"
   engine            = var.engine 
   engine_version    = var.engine_version
